@@ -37,5 +37,5 @@ for attr in attributes:
     print(f"{attr}: {ig:.3f}")
 
 best_attr = max(ig_results, key=ig_results.get)
-print("\n✅ Best root node (highest IG):", best_attr)
+print("Best root node (highest IG):", best_attr)
 

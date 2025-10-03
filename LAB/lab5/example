@@ -1,0 +1,16 @@
+from sklearn.metrics import accuracy_score
+
+models = {
+    "Decision Tree": DecisionTreeClassifier(random_state=1),
+    "KNN": KNeighborsClassifier(),
+    "Random Forest": RandomForestClassifier(random_state=1),
+    "XGBoost": XGBClassifier(random_state=1)
+}
+
+for name, model in models.items():
+    model.fit(x_sel_train, y_train)
+    y_pred = model.predict(x_sel_test)
+    test_acc = accuracy_score(y_test, y_pred)
+    train_acc = model.score(x_sel_train, y_train)
+    print(f"{name} -> Test acc: {test_acc:.2f} | Train acc: {train_acc:.2f}")
+

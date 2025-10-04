@@ -11,12 +11,15 @@ knn = KNeighborsClassifier(n_neighbors=5)
 scores = cross_val_score(knn,X,y,cv=kf)
 
 # leave one out
-from sklearn.model_selection import LeaveOneOut
+from sklearn.model_selection import LeaveOneOut,cross_val_score
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 loo = LeaveOneOut()
 model = KNeighborsClassifier(n_neighbors=5)
+scores = cross_val_score(model,X,y,cv=loo)
+
+'''
 scores = []
 
 for train_idx,test_idx in loo.split(X):
@@ -24,4 +27,4 @@ for train_idx,test_idx in loo.split(X):
   y_train,ytest = y[train_idx],y[test_idx]
   model.fit(X_train,y_train)
   y_pred = model.predict(X_test)
-  scores.append(accuracy_score(y_test,y_pred))
+  scores.append(accuracy_score(y_test,y_pred))'''
